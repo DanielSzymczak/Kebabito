@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://b1qua1oxstvoi"]
+[gd_scene load_steps=9 format=4 uid="uid://b1qua1oxstvoi"]
 
 [ext_resource type="PackedScene" uid="uid://csns7a61m5ydb" path="res://Scenes/spawner.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://d1vdxyiyo7gjx" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://crqtohmp4qg21" path="res://Tilemaps/Town_tilemap.png" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://efpuauvm5c7u" path="res://Scenes/navigation_marker.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dbubyoeka4pse" path="res://Scenes/crafter.tscn" id="5_wowpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm1d"]
 size = Vector2(170, 60)
@@ -466,5 +467,8 @@ navigation_node_bridge = Vector2(1, 0)
 position = Vector2(592, 80)
 navigation_node_regular = Vector2(0, -1)
 navigation_node_bridge = Vector2(-1, 0)
+
+[node name="Crafter1" parent="." instance=ExtResource("5_wowpa")]
+position = Vector2(337, 144)
 
 [connection signal="body_entered" from="Seller" to="." method="_on_seller_body_entered"]
