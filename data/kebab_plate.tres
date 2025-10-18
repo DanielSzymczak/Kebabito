@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://c0oaj85wm4eve"]
+
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_4jycg"]
+[ext_resource type="PackedScene" uid="uid://c714ba6y5jhye" path="res://Scenes/items/kebab_plate.tscn" id="1_4rjej"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="2_okagk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rjej"]
+atlas = ExtResource("2_okagk")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_4jycg")
+sprite = SubResource("AtlasTexture_4rjej")
+value_multiplayer = 1.0
+value = 20.0
+scene = ExtResource("1_4rjej")
+metadata/_custom_type_script = "uid://dotaimm138xfo"

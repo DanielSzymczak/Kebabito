@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cy0duexhd2ddx"]
+
+[ext_resource type="PackedScene" uid="uid://bubef6t311wqc" path="res://Scenes/items/small_rollo.tscn" id="1_g6d8w"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="2_hjyyu"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="3_n7n4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wwsh"]
+atlas = ExtResource("3_n7n4p")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_hjyyu")
+name = "small_rollo"
+sprite = SubResource("AtlasTexture_5wwsh")
+value_multiplayer = 1.0
+value = 1.0
+scene = ExtResource("1_g6d8w")
+metadata/_custom_type_script = "uid://dotaimm138xfo"

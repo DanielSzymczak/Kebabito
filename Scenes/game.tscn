@@ -375,9 +375,10 @@ script = ExtResource("1_qxrlw")
 
 [node name="Seller" type="Area2D" parent="."]
 position = Vector2(594, -33)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seller"]
-position = Vector2(-2, -30)
 shape = SubResource("RectangleShape2D_wrm1d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -480,6 +481,7 @@ navigation_node_regular = Vector2(0, -1)
 navigation_node_crafter = Vector2(-1, 0)
 
 [node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true

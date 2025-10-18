@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://c3a30x2kg4ggp"]
+
+[ext_resource type="PackedScene" uid="uid://bfh7m2a4citt3" path="res://Scenes/items/baklava.tscn" id="1_6biuk"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_7ygdi"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="2_iucbq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6biuk"]
+atlas = ExtResource("2_iucbq")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_7ygdi")
+sprite = SubResource("AtlasTexture_6biuk")
+value_multiplayer = 1.0
+value = 300.0
+scene = ExtResource("1_6biuk")
+metadata/_custom_type_script = "uid://dotaimm138xfo"
