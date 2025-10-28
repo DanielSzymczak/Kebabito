@@ -11,7 +11,6 @@ region = Rect2(96, 0, 32, 32)
 [resource]
 script = ExtResource("1_7ygdi")
 sprite = SubResource("AtlasTexture_6biuk")
-value_multiplayer = 1.0
 value = 300.0
 scene = ExtResource("1_6biuk")
 metadata/_custom_type_script = "uid://dotaimm138xfo"

@@ -12,7 +12,6 @@ region = Rect2(32, 0, 32, 32)
 script = ExtResource("2_hjyyu")
 name = "small_rollo"
 sprite = SubResource("AtlasTexture_5wwsh")
-value_multiplayer = 1.0
 value = 1.0
 scene = ExtResource("1_g6d8w")
 metadata/_custom_type_script = "uid://dotaimm138xfo"

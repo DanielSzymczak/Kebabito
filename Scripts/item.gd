@@ -1,10 +1,12 @@
 extends RigidBody2D
 signal item_sold
 
+@export var id : String
 @export var value:float = 50.0
 @export var speed:float = 150
 @export var direction:Vector2 = Vector2(0,1)
 @export var value_multiplier:float = 1.0
+@export var ammount:float = 1
 
 var last_position: Vector2 = Vector2(0, 0)
 var last_direction: Vector2 = Vector2(0, 0)
@@ -27,4 +29,5 @@ func set_direction(new_direction: Vector2):
 
 func set_data(item:Item)->void:
 	value = item.value
+	id = item.name
 	
