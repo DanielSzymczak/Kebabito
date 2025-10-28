@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://b8n7gsc1iao4f"]
+
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_ap571"]
+[ext_resource type="Resource" uid="uid://c0oaj85wm4eve" path="res://data/kebab_plate.tres" id="2_0gh4j"]
+[ext_resource type="Script" uid="uid://cpokqdqjw7tbr" path="res://model/recipe.gd" id="2_i7k24"]
+[ext_resource type="Resource" uid="uid://c3a30x2kg4ggp" path="res://data/baklava.tres" id="3_1aimv"]
+
+[resource]
+script = ExtResource("2_i7k24")
+recipe_inputs = Dictionary[ExtResource("1_ap571"), int]({
+ExtResource("2_0gh4j"): 10
+})
+recipe_outputs = Dictionary[ExtResource("1_ap571"), int]({
+ExtResource("3_1aimv"): 1
+})
+metadata/_custom_type_script = "uid://cpokqdqjw7tbr"

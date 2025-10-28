@@ -1,8 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://csns7a61m5ydb"]
+[gd_scene load_steps=6 format=3 uid="uid://csns7a61m5ydb"]
 
 [ext_resource type="Script" uid="uid://c6jopywyppfga" path="res://Scripts/spawner.gd" id="1_2bop2"]
-[ext_resource type="PackedScene" uid="uid://fh5a2i478v34" path="res://Scenes/item.tscn" id="2_mdv8j"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="3_2ydn3"]
+[ext_resource type="Resource" uid="uid://cy0duexhd2ddx" path="res://data/small_rollo.tres" id="4_f333s"]
+[ext_resource type="Resource" uid="uid://c0oaj85wm4eve" path="res://data/kebab_plate.tres" id="5_t512v"]
+[ext_resource type="Resource" uid="uid://c3a30x2kg4ggp" path="res://data/baklava.tres" id="6_gjq3i"]
 
 [node name="Spawner" type="Marker2D"]
 script = ExtResource("1_2bop2")
-item_scene = ExtResource("2_mdv8j")
+items = Array[ExtResource("3_2ydn3")]([ExtResource("4_f333s"), ExtResource("5_t512v"), ExtResource("6_gjq3i"), null])
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+autostart = true
