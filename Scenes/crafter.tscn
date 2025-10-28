@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbubyoeka4pse"]
+[gd_scene load_steps=6 format=3 uid="uid://dbubyoeka4pse"]
 
 [ext_resource type="Texture2D" uid="uid://f8m66vssje0a" path="res://icon.svg" id="1_0rc8x"]
 [ext_resource type="Script" uid="uid://cs1vldh8t456c" path="res://Scripts/crafter.gd" id="1_37sf6"]
@@ -7,16 +7,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_37sf6"]
 radius = 5.0990195
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdxf"]
+size = Vector2(38, 38)
+
 [node name="Crafter" type="Node2D" node_paths=PackedStringArray("crafter_navigation_nodes")]
+texture_filter = 1
 script = ExtResource("1_37sf6")
 selected_recipe = ExtResource("2_scdxf")
 crafter_navigation_nodes = [null, null]
-inventory = Dictionary[String, int]({
-"small_rollo": 0
+inventory = Dictionary[String, float]({
+"small_rollo": 0.0
 })
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_0rc8x")
 
@@ -27,4 +32,11 @@ texture = ExtResource("1_0rc8x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_37sf6")
 
+[node name="ClickableArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
+shape = SubResource("RectangleShape2D_scdxf")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

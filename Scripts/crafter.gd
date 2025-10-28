@@ -1,21 +1,22 @@
 extends Node2D
 
+@export var crafting_time:float = 1
 @export var selected_recipe : Recipe = null
 @export var crafter_navigation_nodes:Array[CrafterNode] = []
+@export var inventory : Dictionary[String,float]={}
+
+# Nodes
 @export var spawner:Marker2D = null
-@export var crafting_time:float = 1
+@export var game:Node2D = null
 
 enum STATE {INPUT,OUTPUT}
 var output_node:Marker2D = null
 
-@export var inventory : Dictionary[String,float]={}
 
 func _ready() -> void:
 	crafter_navigation_nodes[0].current_state = STATE.INPUT
 	crafter_navigation_nodes[1].current_state = STATE.OUTPUT
 	output_node=crafter_navigation_nodes[1]
-	await get_tree().create_timer(10).timeout
-	flip_crafter_node_states()
 
 
 func flip_crafter_node_states():
@@ -25,6 +26,7 @@ func flip_crafter_node_states():
 	crafter_navigation_nodes[1].current_state = temp
 
 func select_recipe(new_recipe : Recipe) -> void:
+	selected_recipe=new_recipe
 	crafter_navigation_nodes[0].select_recipe(new_recipe)
 	crafter_navigation_nodes[1].select_recipe(new_recipe)
 	inventory.clear()
@@ -32,6 +34,8 @@ func select_recipe(new_recipe : Recipe) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var body = area.get_parent()
 	if  body.id in selected_recipe.get_input_dict().keys():
+		if body.id not in inventory.keys():
+			inventory[body.id]=0
 		inventory[body.id]+=body.ammount
 		body.queue_free()
 	craft()
@@ -64,3 +68,8 @@ func clamp_with_threshold(value: float, threshold: float) -> int:
 	if abs(value) < threshold:
 		return 0
 	return 1 if value > 0 else -1
+
+
+func _on_clickable_area_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
+	if Input.is_action_just_pressed("Selected"):
+		game.select_crafter(self)

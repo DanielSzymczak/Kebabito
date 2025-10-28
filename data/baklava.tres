@@ -10,7 +10,8 @@ region = Rect2(96, 0, 32, 32)
 
 [resource]
 script = ExtResource("1_7ygdi")
-sprite = SubResource("AtlasTexture_6biuk")
+name = "baklava"
+icon = SubResource("AtlasTexture_6biuk")
 value = 300.0
 scene = ExtResource("1_6biuk")
 metadata/_custom_type_script = "uid://dotaimm138xfo"

@@ -3,6 +3,8 @@ class_name Recipe
 
 @export var recipe_inputs: Dictionary[Item, float] = {}
 @export var recipe_outputs: Dictionary[Item, float] = {}
+@export var icon : AtlasTexture = null
+@export var name : String = ""
 
 var recipe_input_string_dict: Dictionary[String, float]
 var recipe_output_string_dict: Dictionary[String, float]
