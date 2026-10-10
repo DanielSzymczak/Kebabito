@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c0oaj85wm4eve"]
+
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="1_jeqhi"]
+[ext_resource type="Resource" uid="uid://cdmtlq0n34ef1" path="res://model/ID's/item/kebab_plate_ID.tres" id="2_4fi6v"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="3_4fi6v"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="4_r7isc"]
+
+[sub_resource type="Resource" id="Resource_jeqhi"]
+script = ExtResource("4_r7isc")
+mantissa = 50.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rjej"]
+atlas = ExtResource("1_jeqhi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="Resource" id="Resource_s35of"]
+script = ExtResource("4_r7isc")
+mantissa = 2.5
+exponent = 2
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("3_4fi6v")
+id = ExtResource("2_4fi6v")
+icon = SubResource("AtlasTexture_4rjej")
+value = SubResource("Resource_s35of")
+enriching_time_units = SubResource("Resource_jeqhi")
+metadata/_custom_type_script = "uid://dotaimm138xfo"

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://ciov8v82ybhmo"]
+
+[ext_resource type="Theme" uid="uid://f8s1orxie4rl" path="res://themes/UI.tres" id="1_5arw3"]
+[ext_resource type="Script" uid="uid://d2kpg0e4k8itq" path="res://Scripts/UI/stack_upgrade_button_ui.gd" id="2_unavt"]
+[ext_resource type="Texture2D" uid="uid://dguylrombu6rl" path="res://Sprites/UI/frame.png" id="3_ki7rc"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="4_ihhx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t31uj"]
+atlas = ExtResource("4_ihhx2")
+region = Rect2(0, 0, 32, 32)
+
+[node name="PanelContainer" type="PanelContainer" unique_id=583040968]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme = ExtResource("1_5arw3")
+script = ExtResource("2_unavt")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2121492689]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_5arw3")
+texture = ExtResource("3_ki7rc")
+region_rect = Rect2(0, 0, 200, 100)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1508517670]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=336792129]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GridContainer" unique_id=367993462]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/VBoxContainer" unique_id=1347705756]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_t31uj")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/VBoxContainer/TextureRect" unique_id=2048308446]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmountLabel" type="Label" parent="MarginContainer/GridContainer/VBoxContainer" unique_id=1567123660]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "amount"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/GridContainer" unique_id=890258043]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ValueLabel" type="Label" parent="MarginContainer/GridContainer/VBoxContainer2" unique_id=650481079]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Value:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeButton" type="Button" parent="MarginContainer/GridContainer/VBoxContainer2" unique_id=1950032306]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_5arw3")
+text = "Upgrade"
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/GridContainer/VBoxContainer2" unique_id=895807479]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "price"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/GridContainer/VBoxContainer2/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

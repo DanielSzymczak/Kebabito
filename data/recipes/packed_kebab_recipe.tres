@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://ddc47b880v7o2"]
+
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="1_6xgnm"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_781mu"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="2_6xgnm"]
+[ext_resource type="Script" uid="uid://cpokqdqjw7tbr" path="res://model/recipe.gd" id="3_nv5pm"]
+[ext_resource type="Resource" uid="uid://cy0duexhd2ddx" path="res://data/items/small_rollo.tres" id="4_nv5pm"]
+[ext_resource type="Resource" uid="uid://bslquj605euah" path="res://data/items/packed_kebab.tres" id="5_62inc"]
+
+[sub_resource type="Resource" id="Resource_rafls"]
+script = ExtResource("2_6xgnm")
+mantissa = 50.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv5pm"]
+atlas = ExtResource("1_6xgnm")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_62inc"]
+script = ExtResource("2_6xgnm")
+mantissa = 1.0
+exponent = 5
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="Resource" id="Resource_020w0"]
+script = ExtResource("2_6xgnm")
+mantissa = 1.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("3_nv5pm")
+recipe_inputs = Dictionary[ExtResource("1_781mu"), ExtResource("2_6xgnm")]({
+ExtResource("4_nv5pm"): SubResource("Resource_62inc")
+})
+recipe_outputs = Dictionary[ExtResource("1_781mu"), ExtResource("2_6xgnm")]({
+ExtResource("5_62inc"): SubResource("Resource_020w0")
+})
+icon = SubResource("AtlasTexture_nv5pm")
+name = "packed kebab"
+crafting_time_units = SubResource("Resource_rafls")
+metadata/_custom_type_script = "uid://cpokqdqjw7tbr"

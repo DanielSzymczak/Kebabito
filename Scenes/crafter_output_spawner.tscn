@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0l8rjawo5h4"]
+
+[ext_resource type="Script" uid="uid://c2fn8irk0xqsb" path="res://Scripts/crafter_output_spawner.gd" id="1_iu73d"]
+[ext_resource type="Resource" uid="uid://d5kodtd0rr1e" path="res://model/ID's/spawner/craftet_output_spawner_ID.tres" id="2_pqor2"]
+[ext_resource type="Resource" uid="uid://bt364jkhy403g" path="res://model/ID's/upgrades/item_speed_ID.tres" id="2_vx7c1"]
+
+[node name="CrafterOutputSpawner" type="Marker2D" unique_id=293072231]
+script = ExtResource("1_iu73d")
+item_speed_id = ExtResource("2_vx7c1")
+id = ExtResource("2_pqor2")

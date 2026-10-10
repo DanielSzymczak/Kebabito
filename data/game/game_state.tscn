@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cdk5vxhp5a3tp"]
+
+[ext_resource type="Script" uid="uid://bpvjthfftoxsm" path="res://data/game/GameState.gd" id="1_v31h2"]
+[ext_resource type="Resource" uid="uid://bt364jkhy403g" path="res://model/ID's/upgrades/item_speed_ID.tres" id="2_0x2xc"]
+[ext_resource type="Script" uid="uid://bmsomj5gudy25" path="res://model/ID's/splitter/splitter_id.gd" id="2_1qxiv"]
+[ext_resource type="Script" uid="uid://c8owqcvs1eyxd" path="res://model/ID's/spawner/spawner_ID.gd" id="2_1rasn"]
+[ext_resource type="Resource" uid="uid://73tx0uialjlq" path="res://model/ID's/spawner/spawner_ID1.tres" id="3_1qxiv"]
+[ext_resource type="Resource" uid="uid://bpjvst2d3y5ft" path="res://model/ID's/upgrades/tap_effectiveness_ID.tres" id="3_llwo2"]
+[ext_resource type="Resource" uid="uid://dmjrlda71qii5" path="res://model/ID's/splitter/splitter_ID1.tres" id="3_mqyx7"]
+[ext_resource type="Resource" uid="uid://bvbrjgvp77f4f" path="res://model/ID's/upgrades/spawning_speed_ID.tres" id="4_8jpgf"]
+[ext_resource type="Resource" uid="uid://ds6porlkheupa" path="res://model/ID's/splitter/splitter_ID2.tres" id="4_650se"]
+[ext_resource type="Resource" uid="uid://nhe6gwbjcxtn" path="res://model/ID's/spawner/spawner_ID2.tres" id="4_mqyx7"]
+[ext_resource type="Resource" uid="uid://c22bsdb261mmc" path="res://model/ID's/spawner/spawner_ID3.tres" id="5_650se"]
+[ext_resource type="Resource" uid="uid://sm5u3cwmuea2" path="res://model/ID's/upgrades/crafting_speed_ID.tres" id="5_clg7r"]
+[ext_resource type="Resource" uid="uid://di2olwfes2rrx" path="res://model/ID's/splitter/splitter_ID3.tres" id="5_qk43h"]
+[ext_resource type="Resource" uid="uid://bnqpk6pn024kh" path="res://model/ID's/upgrades/enable_enrichers_ID.tres" id="6_clg7r"]
+[ext_resource type="Resource" uid="uid://df2drk2pg6ahf" path="res://model/ID's/splitter/splitter_ID4.tres" id="6_qhn7g"]
+[ext_resource type="Resource" uid="uid://c7i8jhn1esc7n" path="res://model/ID's/spawner/spawner_ID4.tres" id="6_qk43h"]
+[ext_resource type="Resource" uid="uid://b2pam38y1n38j" path="res://model/ID's/upgrades/enrichment_multiplier_ID.tres" id="7_8jw34"]
+[ext_resource type="Resource" uid="uid://bv8jh1kyeb0rr" path="res://model/ID's/splitter/splitter_ID5.tres" id="7_rrvoo"]
+[ext_resource type="Resource" uid="uid://n6empcp7npgr" path="res://model/ID's/upgrades/max_enrichment_ID.tres" id="8_8gnt5"]
+[ext_resource type="Resource" uid="uid://cnuidp3exvy7m" path="res://model/ID's/upgrades/enriching_time_multiplier_upgrade_ID.tres" id="9_htjfx"]
+[ext_resource type="Resource" uid="uid://d5kodtd0rr1e" path="res://model/ID's/spawner/craftet_output_spawner_ID.tres" id="11_llwo2"]
+[ext_resource type="Script" uid="uid://bwqgxqivakel0" path="res://model/ID's/crafter/crafter_ID.gd" id="17_0o7bv"]
+[ext_resource type="Resource" uid="uid://cm6sd100rb5c6" path="res://model/ID's/crafter/crafter_ID1.tres" id="18_llwo2"]
+[ext_resource type="Resource" uid="uid://djx461v5ngy12" path="res://model/ID's/crafter/crafter_ID2.tres" id="19_sde5x"]
+[ext_resource type="Resource" uid="uid://bccvw2lxldawt" path="res://model/ID's/crafter/crafter_ID3.tres" id="20_8jpgf"]
+[ext_resource type="Resource" uid="uid://br7vwo7a33mrf" path="res://model/ID's/crafter/crafter_ID4.tres" id="21_clg7r"]
+[ext_resource type="Resource" uid="uid://d3q5wvuccwh38" path="res://model/ID's/crafter/crafter_ID5.tres" id="22_8jw34"]
+[ext_resource type="Script" uid="uid://d0yiunubdhjvk" path="res://model/ID's/enricher/enricher_ID.gd" id="27_8gnt5"]
+[ext_resource type="Resource" uid="uid://b8c5sqbxacwa" path="res://model/ID's/enricher/enricher1_ID.tres" id="28_htjfx"]
+
+[node name="GameState" type="Node2D" unique_id=999622629]
+script = ExtResource("1_v31h2")
+item_speed_id = ExtResource("2_0x2xc")
+tap_effectiveness_id = ExtResource("3_llwo2")
+spawning_speed_id = ExtResource("4_8jpgf")
+crafting_speed_id = ExtResource("5_clg7r")
+enable_enrichers_id = ExtResource("6_clg7r")
+enrichment_multiplier_id = ExtResource("7_8jw34")
+max_level_enrichment_id = ExtResource("8_8gnt5")
+enriching_time_multiplier_upgrade_id = ExtResource("9_htjfx")
+spawners = Array[ExtResource("2_1rasn")]([ExtResource("3_1qxiv"), ExtResource("4_mqyx7"), ExtResource("5_650se"), ExtResource("6_qk43h"), ExtResource("11_llwo2")])
+splitters = Array[ExtResource("2_1qxiv")]([ExtResource("3_mqyx7"), ExtResource("4_650se"), ExtResource("5_qk43h"), ExtResource("6_qhn7g"), ExtResource("7_rrvoo")])
+crafters = Array[ExtResource("17_0o7bv")]([ExtResource("18_llwo2"), ExtResource("19_sde5x"), ExtResource("20_8jpgf"), ExtResource("21_clg7r"), ExtResource("22_8jw34")])
+enrichers = Array[ExtResource("27_8gnt5")]([ExtResource("28_htjfx")])
+
+[node name="Timer" type="Timer" parent="." unique_id=164310108]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

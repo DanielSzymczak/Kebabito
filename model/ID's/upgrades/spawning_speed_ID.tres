@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeID" format=3 uid="uid://bvbrjgvp77f4f"]
+
+[ext_resource type="Script" uid="uid://30xovfkibnpj" path="res://model/ID's/upgrades/upgrade_id.gd" id="1_moya1"]
+
+[resource]
+script = ExtResource("1_moya1")
+id_name = "spawning speed"
+metadata/_custom_type_script = "uid://30xovfkibnpj"

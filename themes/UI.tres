@@ -1,0 +1,94 @@
+[gd_resource type="Theme" format=3 uid="uid://f8s1orxie4rl"]
+
+[ext_resource type="Texture2D" uid="uid://c357610bkkxwx" path="res://Sprites/UI/button_disabled.png" id="1_mvcca"]
+[ext_resource type="Texture2D" uid="uid://dcb3v7gsqkw1j" path="res://Sprites/UI/button_hover.png" id="2_ku4ad"]
+[ext_resource type="Texture2D" uid="uid://bva3qev0c4bcm" path="res://Sprites/UI/button_on_hover.png" id="3_qstq0"]
+[ext_resource type="Texture2D" uid="uid://dr33dopdaxcgf" path="res://Sprites/UI/button.png" id="4_3onlv"]
+[ext_resource type="Texture2D" uid="uid://cpu258ycfif34" path="res://Sprites/UI/button_on.png" id="5_ggg2j"]
+[ext_resource type="Texture2D" uid="uid://bjvstxfcelkh" path="res://Sprites/UI/crafter_spawning_bar_under.png" id="6_qstq0"]
+[ext_resource type="Texture2D" uid="uid://nrr36duysm7y" path="res://Sprites/UI/crafter_spawning_bar_progress.png" id="7_3onlv"]
+[ext_resource type="Texture2D" uid="uid://bveb3mgv8qe6g" path="res://Sprites/UI/grabber_pressed.png" id="8_3onlv"]
+[ext_resource type="Texture2D" uid="uid://ci2wvelm6pvn3" path="res://Sprites/UI/grabber_highlighted.png" id="9_ggg2j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wpce"]
+texture = ExtResource("1_mvcca")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmhkw"]
+texture = ExtResource("2_ku4ad")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bq3l0"]
+texture = ExtResource("3_qstq0")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fg5y7"]
+texture = ExtResource("4_3onlv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgjh4"]
+texture = ExtResource("5_ggg2j")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mvcca"]
+texture = ExtResource("2_ku4ad")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ku4ad"]
+texture = ExtResource("3_qstq0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qstq0"]
+content_margin_right = 0.0
+texture = ExtResource("4_3onlv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3onlv"]
+texture = ExtResource("5_ggg2j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ggg2j"]
+texture = ExtResource("6_qstq0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvj8q"]
+texture = ExtResource("7_3onlv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4s5my"]
+texture = ExtResource("8_3onlv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g355m"]
+texture = ExtResource("9_ggg2j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fbr4r"]
+texture = ExtResource("8_3onlv")
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_6wpce")
+Button/styles/hover = SubResource("StyleBoxTexture_pmhkw")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_bq3l0")
+Button/styles/normal = SubResource("StyleBoxTexture_fg5y7")
+Button/styles/pressed = SubResource("StyleBoxTexture_kgjh4")
+ItemList/styles/hovered = SubResource("StyleBoxTexture_mvcca")
+ItemList/styles/hovered_selected = SubResource("StyleBoxTexture_ku4ad")
+ItemList/styles/panel = SubResource("StyleBoxTexture_qstq0")
+ItemList/styles/selected = SubResource("StyleBoxTexture_3onlv")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 15
+MarginContainer/constants/margin_top = 15
+ProgressBar/styles/background = SubResource("StyleBoxTexture_ggg2j")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_qvj8q")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_4s5my")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_g355m")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_fbr4r")

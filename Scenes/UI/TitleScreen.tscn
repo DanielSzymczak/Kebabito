@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://ylp41vxrhubq"]
+
+[ext_resource type="Texture2D" uid="uid://rxnb5huk5i83" path="res://Sprites/UI/titlescreen.png" id="1_25ulu"]
+[ext_resource type="Script" uid="uid://b0grf2xbtqp5t" path="res://Scripts/UI/title_screen.gd" id="1_ciful"]
+[ext_resource type="Texture2D" uid="uid://cwx6x20so1v2i" path="res://Sprites/UI/crafter_door.png" id="2_tj2y6"]
+[ext_resource type="Texture2D" uid="uid://87durheqe4wy" path="res://Sprites/UI/Title/O.png" id="3_k4b42"]
+[ext_resource type="Texture2D" uid="uid://cbu8yfmvcbtpe" path="res://Sprites/UI/belt_spritesheet.png" id="3_tj2y6"]
+[ext_resource type="Texture2D" uid="uid://badksaagm53to" path="res://Sprites/UI/kebab_title.png" id="4_o00x8"]
+[ext_resource type="Texture2D" uid="uid://b87dn438hf2c3" path="res://Sprites/UI/Title/T.png" id="4_tj2y6"]
+[ext_resource type="Texture2D" uid="uid://bp8ku7qrhodap" path="res://Sprites/UI/crafter_background.png" id="5_o00x8"]
+[ext_resource type="Texture2D" uid="uid://p6q5dix7qlbn" path="res://Sprites/UI/Title/I.png" id="5_vukla"]
+[ext_resource type="Texture2D" uid="uid://8dweg1cshr8a" path="res://Sprites/UI/Title/B.png" id="6_o00x8"]
+[ext_resource type="Texture2D" uid="uid://brc7umuurvi1v" path="res://Sprites/UI/crafter_title.png" id="7_5ft70"]
+[ext_resource type="Texture2D" uid="uid://iyefba6bqy4c" path="res://Sprites/UI/Title/A.png" id="7_84xpj"]
+[ext_resource type="Texture2D" uid="uid://cjx37bdfl881v" path="res://Sprites/UI/Title/E.png" id="8_5ft70"]
+[ext_resource type="Texture2D" uid="uid://bmmy363xdxq82" path="res://Sprites/UI/Title/K.png" id="9_fdsak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vukla"]
+atlas = ExtResource("3_tj2y6")
+region = Rect2(2, 2, 206, 78)
+
+[sub_resource type="Animation" id="Animation_o00x8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_vukla")]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs1xq"]
+atlas = ExtResource("3_tj2y6")
+region = Rect2(212, 82, 206, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdsak"]
+atlas = ExtResource("3_tj2y6")
+region = Rect2(2, 82, 206, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ft70"]
+atlas = ExtResource("3_tj2y6")
+region = Rect2(212, 2, 206, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84xpj"]
+atlas = ExtResource("3_tj2y6")
+region = Rect2(2, 2, 206, 78)
+
+[sub_resource type="Animation" id="Animation_mbv52"]
+resource_name = "belt_rolling"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_qs1xq"), SubResource("AtlasTexture_fdsak"), SubResource("AtlasTexture_5ft70"), SubResource("AtlasTexture_84xpj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obdur"]
+_data = {
+&"RESET": SubResource("Animation_o00x8"),
+&"belt_rolling": SubResource("Animation_mbv52")
+}
+
+[node name="Control" type="Control" unique_id=1722232147 node_paths=PackedStringArray("marker1", "marker2", "marker3")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ciful")
+marker1 = NodePath("Background/Marker1")
+marker2 = NodePath("Background/Marker2")
+marker3 = NodePath("Background/Marker3")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2034635263]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1944.0
+grow_horizontal = 2
+texture = ExtResource("1_25ulu")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Kebab" type="TextureRect" parent="Background" unique_id=1150749703]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 1574.0
+offset_right = 810.0
+offset_bottom = 1652.0
+texture = ExtResource("4_o00x8")
+
+[node name="Door" type="TextureRect" parent="Background" unique_id=732914416]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 557.0
+offset_top = 1610.0
+offset_right = 696.0
+offset_bottom = 1774.0
+texture = ExtResource("2_tj2y6")
+
+[node name="CrafterBackground" type="TextureRect" parent="Background" unique_id=302394974]
+z_index = -2
+layout_mode = 0
+offset_left = 534.0
+offset_top = 1552.0
+offset_right = 738.0
+offset_bottom = 1793.9535
+texture = ExtResource("5_o00x8")
+
+[node name="Crafter" type="TextureRect" parent="Background" unique_id=1629627984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_5ft70")
+
+[node name="Belt" type="TextureRect" parent="Background" unique_id=693502828]
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -331.0
+offset_top = -188.0
+offset_right = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_vukla")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Belt" unique_id=1061598848]
+libraries/ = SubResource("AnimationLibrary_obdur")
+autoplay = &"belt_rolling"
+
+[node name="Marker1" type="Marker2D" parent="Background" unique_id=1313893276]
+position = Vector2(704, 1600)
+
+[node name="Marker2" type="Marker2D" parent="Background" unique_id=2022485449]
+z_index = 1
+position = Vector2(587, 1683)
+
+[node name="Marker3" type="Marker2D" parent="Background" unique_id=834349489]
+position = Vector2(234, 2013)
+
+[node name="TitleControl" type="Control" parent="." unique_id=870215414]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="O" type="TextureRect" parent="TitleControl" unique_id=1793515100]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 61.0
+offset_right = 1141.0
+offset_bottom = 138.0
+texture = ExtResource("3_k4b42")
+stretch_mode = 2
+
+[node name="T" type="TextureRect" parent="TitleControl" unique_id=2092581756]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 61.0
+offset_right = 1016.0
+offset_bottom = 138.0
+texture = ExtResource("4_tj2y6")
+stretch_mode = 2
+
+[node name="I" type="TextureRect" parent="TitleControl" unique_id=187120433]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 61.0
+offset_right = 891.0
+offset_bottom = 138.0
+texture = ExtResource("5_vukla")
+stretch_mode = 2
+
+[node name="B2" type="TextureRect" parent="TitleControl" unique_id=1923940449]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 61.0
+offset_right = 754.0
+offset_bottom = 138.0
+texture = ExtResource("6_o00x8")
+stretch_mode = 2
+
+[node name="A" type="TextureRect" parent="TitleControl" unique_id=701803774]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 61.0
+offset_right = 617.0
+offset_bottom = 138.0
+texture = ExtResource("7_84xpj")
+stretch_mode = 2
+
+[node name="B" type="TextureRect" parent="TitleControl" unique_id=1831047775]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 61.0
+offset_right = 422.0
+offset_bottom = 138.0
+texture = ExtResource("6_o00x8")
+stretch_mode = 2
+
+[node name="E" type="TextureRect" parent="TitleControl" unique_id=375643469]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 61.0
+offset_right = 286.0
+offset_bottom = 138.0
+texture = ExtResource("8_5ft70")
+stretch_mode = 2
+
+[node name="K" type="TextureRect" parent="TitleControl" unique_id=298174217]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 61.0
+offset_right = 154.0
+offset_bottom = 138.0
+texture = ExtResource("9_fdsak")
+stretch_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1577981660]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Button" unique_id=36081948]
+modulate = Color(0.22733799, 0.14823815, 0.047900043, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Press to continue"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

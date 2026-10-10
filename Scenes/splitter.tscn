@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://n78rulj0vbfj"]
+
+[ext_resource type="Script" uid="uid://k3dnad47pj25" path="res://Scripts/splitter.gd" id="1_6qnqq"]
+[ext_resource type="Texture2D" uid="uid://8c3mnd3oa70" path="res://Sprites/Object_spriteheet.png" id="2_6qnqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qnqq"]
+size = Vector2(32, 32)
+
+[node name="Splitter" type="Node2D" unique_id=1131199801]
+texture_filter = 1
+script = ExtResource("1_6qnqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1341697735]
+texture = ExtResource("2_6qnqq")
+region_enabled = true
+region_rect = Rect2(64, 64, 64, 64)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=265969273]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1856709306]
+shape = SubResource("RectangleShape2D_6qnqq")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

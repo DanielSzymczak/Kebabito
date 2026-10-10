@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b7s4aogrokplq"]
+
+[ext_resource type="Script" uid="uid://1ntgwiphuj6p" path="res://Scripts/enricher_navigator.gd" id="1_303k0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rm78k"]
+radius = 1.0
+
+[node name="enricher_navigator" type="Marker2D" unique_id=1672621382]
+script = ExtResource("1_303k0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=583412392]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=834286580]
+shape = SubResource("CircleShape2D_rm78k")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

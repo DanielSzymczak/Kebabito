@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqmimyhydj4tx"]
+[gd_scene format=3 uid="uid://dqmimyhydj4tx"]
 
 [ext_resource type="Script" uid="uid://dpif6yk4gal36" path="res://Scripts/crafter_navigation_node.gd" id="1_u50l0"]
-[ext_resource type="Resource" uid="uid://b26kvmux1n556" path="res://data/recipies/kebab_plate_recipe.tres" id="2_nnngm"]
+[ext_resource type="Resource" uid="uid://b26kvmux1n556" path="res://data/recipes/kebab_plate_recipe.tres" id="2_nnngm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37sf6"]
-radius = 2.0
+radius = 1.0
 
-[node name="Marker2D" type="Marker2D"]
+[node name="CrafterNavigationMarker" type="Marker2D" unique_id=1359298445]
 script = ExtResource("1_u50l0")
 selected_recipe = ExtResource("2_nnngm")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Area2D2" type="Area2D" parent="." unique_id=754484575]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=462271810]
 shape = SubResource("CircleShape2D_37sf6")
+
+[node name="NavigationTimer" type="Timer" parent="." unique_id=439712313]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
 
 [connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

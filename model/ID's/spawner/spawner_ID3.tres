@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SpawnerID" format=3 uid="uid://c22bsdb261mmc"]
+
+[ext_resource type="Script" uid="uid://c8owqcvs1eyxd" path="res://model/ID's/spawner/spawner_ID.gd" id="1_ulked"]
+
+[resource]
+script = ExtResource("1_ulked")
+id_name = "spawner3"
+metadata/_custom_type_script = "uid://c8owqcvs1eyxd"

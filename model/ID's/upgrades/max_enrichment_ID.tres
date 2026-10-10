@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeID" format=3 uid="uid://n6empcp7npgr"]
+
+[ext_resource type="Script" uid="uid://30xovfkibnpj" path="res://model/ID's/upgrades/upgrade_id.gd" id="1_k6rqr"]
+
+[resource]
+script = ExtResource("1_k6rqr")
+id_name = "max enrichment"
+metadata/_custom_type_script = "uid://30xovfkibnpj"

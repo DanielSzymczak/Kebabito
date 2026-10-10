@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bvc0t30g8uouu"]
+
+[ext_resource type="Theme" uid="uid://f8s1orxie4rl" path="res://themes/UI.tres" id="1_3l8os"]
+[ext_resource type="Script" uid="uid://dh85s51f3mquv" path="res://Scripts/UI/spawner_upgrade_button_ui.gd" id="2_3l8os"]
+
+[node name="Button" type="Button" unique_id=1978891699]
+custom_minimum_size = Vector2(96, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("1_3l8os")
+script = ExtResource("2_3l8os")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

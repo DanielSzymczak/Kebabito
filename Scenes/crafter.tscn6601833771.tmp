@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dbubyoeka4pse"]
+
+[ext_resource type="Script" uid="uid://cs1vldh8t456c" path="res://Scripts/crafter.gd" id="1_37sf6"]
+[ext_resource type="Resource" uid="uid://b26kvmux1n556" path="res://data/recipies/kebab_plate_recipe.tres" id="2_scdxf"]
+[ext_resource type="Texture2D" uid="uid://ceb8im5780wi5" path="res://Sprites/Crafter_&_some_UI.png" id="3_scdxf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scdxf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp2dr"]
+bg_color = Color(0.45685214, 0.45685226, 0.45685208, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdxf"]
+size = Vector2(38, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37sf6"]
+radius = 5.0990195
+
+[node name="Crafter" type="Node2D" unique_id=1732701593 node_paths=PackedStringArray("crafter_navigation_nodes")]
+texture_filter = 1
+script = ExtResource("1_37sf6")
+base_crafting_time = null
+upgrade_speed_boost = null
+upgrade_price_increase_multiplier = null
+is_enabled = null
+selected_recipe = ExtResource("2_scdxf")
+crafter_navigation_nodes = [null, null]
+inventory = null
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1317233065]
+texture = ExtResource("3_scdxf")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1147472276]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_scdxf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gp2dr")
+fill_mode = 3
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=543618855]
+texture_filter = 1
+texture = ExtResource("3_scdxf")
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 64)
+
+[node name="CraftingTimer" type="Timer" parent="." unique_id=1668328764]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="ClickableArea" type="Area2D" parent="." unique_id=1604782900]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=747614193]
+shape = SubResource("RectangleShape2D_scdxf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1035380100]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1942690174]
+shape = SubResource("CircleShape2D_37sf6")
+
+[node name="CraftingDirectionSprite" type="Sprite2D" parent="." unique_id=999648752]
+position = Vector2(0, -29)
+texture = ExtResource("3_scdxf")
+region_enabled = true
+region_rect = Rect2(128, 128, 64, 64)
+
+[connection signal="timeout" from="CraftingTimer" to="." method="_on_crafting_timer_timeout"]
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

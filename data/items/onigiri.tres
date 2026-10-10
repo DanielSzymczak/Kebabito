@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://xtocij03i8xl"]
+
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_nty6e"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="1_pxnqj"]
+[ext_resource type="Resource" uid="uid://dnbk1p3rrffug" path="res://model/ID's/item/onigiri_ID.tres" id="2_ub0ll"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="4_mp5wa"]
+
+[sub_resource type="Resource" id="Resource_pxnqj"]
+script = ExtResource("4_mp5wa")
+mantissa = 5.0
+exponent = 7
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cqd4"]
+atlas = ExtResource("1_pxnqj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_v1k05"]
+script = ExtResource("4_mp5wa")
+mantissa = 1.0
+exponent = 7
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("1_nty6e")
+id = ExtResource("2_ub0ll")
+icon = SubResource("AtlasTexture_7cqd4")
+value = SubResource("Resource_v1k05")
+enriching_time_units = SubResource("Resource_pxnqj")
+metadata/_custom_type_script = "uid://dotaimm138xfo"

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dkkxigmd38ef7"]
+
+[ext_resource type="Script" uid="uid://cpmbg1hjt64bt" path="res://Scripts/seller.gd" id="1_uw0ws"]
+[ext_resource type="Texture2D" uid="uid://8c3mnd3oa70" path="res://Sprites/Object_spriteheet.png" id="2_im8up"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm1d"]
+size = Vector2(170, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w08ru"]
+atlas = ExtResource("2_im8up")
+region = Rect2(128, 64, 160, 64)
+
+[node name="Seller" type="Area2D" unique_id=595588363]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_uw0ws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1222133662]
+shape = SubResource("RectangleShape2D_wrm1d")
+
+[node name="SellerMarker" type="Marker2D" parent="." unique_id=469501257]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014372545]
+texture_filter = 1
+position = Vector2(0, 16)
+texture = SubResource("AtlasTexture_w08ru")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

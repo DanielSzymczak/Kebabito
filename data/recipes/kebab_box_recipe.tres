@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://ca1axmiyty7fg"]
+
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="1_upd0k"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_vvu61"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="2_2d0of"]
+[ext_resource type="Script" uid="uid://cpokqdqjw7tbr" path="res://model/recipe.gd" id="3_h786a"]
+[ext_resource type="Resource" uid="uid://c0oaj85wm4eve" path="res://data/items/kebab_plate.tres" id="4_j6eam"]
+[ext_resource type="Resource" uid="uid://srjvslg1qora" path="res://data/items/shish_kebab.tres" id="5_6gaay"]
+[ext_resource type="Resource" uid="uid://bmq51lvq2e2lg" path="res://data/items/kebab_box.tres" id="6_j6eam"]
+
+[sub_resource type="Resource" id="Resource_upd0k"]
+script = ExtResource("2_2d0of")
+mantissa = 100.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jht1g"]
+atlas = ExtResource("1_upd0k")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_6cuue"]
+script = ExtResource("2_2d0of")
+mantissa = 100.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="Resource" id="Resource_sbsgm"]
+script = ExtResource("2_2d0of")
+mantissa = 5.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="Resource" id="Resource_6gaay"]
+script = ExtResource("2_2d0of")
+mantissa = 1.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("3_h786a")
+recipe_inputs = Dictionary[ExtResource("1_vvu61"), ExtResource("2_2d0of")]({
+ExtResource("4_j6eam"): SubResource("Resource_6cuue"),
+ExtResource("5_6gaay"): SubResource("Resource_sbsgm")
+})
+recipe_outputs = Dictionary[ExtResource("1_vvu61"), ExtResource("2_2d0of")]({
+ExtResource("6_j6eam"): SubResource("Resource_6gaay")
+})
+icon = SubResource("AtlasTexture_jht1g")
+name = "kebab box"
+crafting_time_units = SubResource("Resource_upd0k")
+metadata/_custom_type_script = "uid://cpokqdqjw7tbr"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeID" format=3 uid="uid://sm5u3cwmuea2"]
+
+[ext_resource type="Script" uid="uid://30xovfkibnpj" path="res://model/ID's/upgrades/upgrade_id.gd" id="1_jtr1x"]
+
+[resource]
+script = ExtResource("1_jtr1x")
+id_name = "crafting speed"
+metadata/_custom_type_script = "uid://30xovfkibnpj"

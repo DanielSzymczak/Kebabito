@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dv88rpfjt5ca7"]
+
+[ext_resource type="Theme" uid="uid://f8s1orxie4rl" path="res://themes/UI.tres" id="1_gkj8k"]
+[ext_resource type="Script" uid="uid://cxojhwgipigxv" path="res://Scripts/UI/tournament_place_display.gd" id="2_fd5uy"]
+[ext_resource type="Texture2D" uid="uid://dguylrombu6rl" path="res://Sprites/UI/frame.png" id="3_0fwsd"]
+
+[node name="TournamentPlaceDisplay" type="Control" unique_id=403240305]
+texture_filter = 1
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gkj8k")
+script = ExtResource("2_fd5uy")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1242807652]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0fwsd")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1878715412]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=789527033]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="PositionLabel" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=2103582205]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "12."
+
+[node name="NameLabel" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=697796011]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 8
+text = "BOB"
+
+[node name="EarnedLabel" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1592564248]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 8
+text = "1 dolla"
+
+[node name="DebugButton" type="Button" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=554910290]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 8
+text = "Add 1000"
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/HBoxContainer/DebugButton" to="." method="_on_debug_button_pressed"]

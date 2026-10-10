@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SplitterID" format=3 uid="uid://dmjrlda71qii5"]
+
+[ext_resource type="Script" uid="uid://bmsomj5gudy25" path="res://model/ID's/splitter/splitter_id.gd" id="1_us022"]
+
+[resource]
+script = ExtResource("1_us022")
+id_name = "splitter_1"
+metadata/_custom_type_script = "uid://bmsomj5gudy25"

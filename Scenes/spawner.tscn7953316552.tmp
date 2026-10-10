@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://csns7a61m5ydb"]
+
+[ext_resource type="Script" uid="uid://c6jopywyppfga" path="res://Scripts/spawner.gd" id="1_2bop2"]
+[ext_resource type="Resource" uid="uid://bt364jkhy403g" path="res://model/ID's/upgrades/item_speed_ID.tres" id="2_t512v"]
+[ext_resource type="Texture2D" uid="uid://ceb8im5780wi5" path="res://Sprites/Crafter_&_some_UI.png" id="6_t512v"]
+[ext_resource type="Texture2D" uid="uid://cpucnd6soqmo2" path="res://Sprites/UI/spawner_bar_over.png" id="7_gjq3i"]
+[ext_resource type="Texture2D" uid="uid://cg65bhabnjy6v" path="res://Sprites/UI/spawner_bar_under.png" id="7_kh5ph"]
+[ext_resource type="Texture2D" uid="uid://dsbn4jkcemy31" path="res://Sprites/UI/spawner_bar_progress.png" id="9_xbrvg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjq3i"]
+atlas = ExtResource("6_t512v")
+region = Rect2(64, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t512v"]
+atlas = ExtResource("6_t512v")
+region = Rect2(160, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yocef"]
+atlas = ExtResource("6_t512v")
+region = Rect2(166, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh5ph"]
+atlas = ExtResource("6_t512v")
+region = Rect2(172, 0, 6, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbrvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t512v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yocef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh5ph")
+}],
+"loop": true,
+"name": &"rollo_turning",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t512v"]
+size = Vector2(90, 48)
+
+[node name="Spawner" type="Marker2D" unique_id=1859333470]
+texture_filter = 1
+position = Vector2(0, -30)
+script = ExtResource("1_2bop2")
+item_speed_id = ExtResource("2_t512v")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=2072214999]
+position = Vector2(0, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=773005023]
+z_index = 1
+z_as_relative = false
+position = Vector2(0, -32)
+texture = SubResource("AtlasTexture_gjq3i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=2122368860]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-33, -5)
+sprite_frames = SubResource("SpriteFrames_xbrvg")
+animation = &"rollo_turning"
+autoplay = "rollo_turning"
+frame_progress = 0.3149853
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals" unique_id=1823291146]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(33, -5)
+sprite_frames = SubResource("SpriteFrames_xbrvg")
+animation = &"rollo_turning"
+autoplay = "rollo_turning"
+frame_progress = 0.10037568
+
+[node name="Area2D" type="Area2D" parent="Visuals" unique_id=567440459]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Area2D" unique_id=1587870025]
+z_index = 1
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_t512v")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Visuals" unique_id=2126463833]
+z_index = 1
+offset_left = -47.0
+offset_top = -63.0
+offset_right = 45.0
+offset_bottom = -43.0
+texture = ExtResource("7_gjq3i")
+patch_margin_left = 7
+patch_margin_top = 3
+patch_margin_right = 7
+patch_margin_bottom = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Visuals" unique_id=814736139]
+z_index = 1
+offset_left = -40.0
+offset_top = -60.0
+offset_right = 38.0
+offset_bottom = -46.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_kh5ph")
+texture_progress = ExtResource("9_xbrvg")
+
+[connection signal="input_event" from="Visuals/Area2D" to="." method="_on_area_2d_input_event"]

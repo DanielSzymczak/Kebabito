@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bv2yc1j57ewjt"]
+
+[ext_resource type="Script" uid="uid://ukfsn5socptm" path="res://Scripts/UI/transition.gd" id="1_0hr3m"]
+[ext_resource type="Texture2D" uid="uid://oe2w3w0b6q8p" path="res://Sprites/UI/factory_door_left.png" id="2_wjm46"]
+[ext_resource type="Texture2D" uid="uid://bvttjp43f63hc" path="res://Sprites/UI/factory_door_right.png" id="3_otkkv"]
+[ext_resource type="Texture2D" uid="uid://b0e2a1wanjvju" path="res://Sprites/UI/turning_wheel.png" id="4_7xkph"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1727692290]
+layer = 100
+script = ExtResource("1_0hr3m")
+
+[node name="DoorLeft" type="TextureRect" parent="." unique_id=1126777704]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -577.0
+offset_right = -577.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_wjm46")
+
+[node name="DoorRight" type="TextureRect" parent="." unique_id=2026144123]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 692.0
+offset_right = 692.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_otkkv")
+
+[node name="Wheel" type="TextureRect" parent="DoorRight" unique_id=1658309017]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48800004
+anchor_top = 0.25300002
+anchor_right = 0.60800004
+anchor_bottom = 0.46600002
+offset_left = -6.1760254
+offset_top = -5.9440155
+offset_right = 5.5839844
+offset_bottom = 6.0319824
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 75)
+mouse_filter = 2
+texture = ExtResource("4_7xkph")
+stretch_mode = 5

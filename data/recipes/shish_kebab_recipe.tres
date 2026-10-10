@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://r247wxrtrg"]
+
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="1_ogbww"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="2_a8nh0"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="3_t135c"]
+[ext_resource type="Resource" uid="uid://c3a30x2kg4ggp" path="res://data/items/baklava.tres" id="4_y6ip3"]
+[ext_resource type="Resource" uid="uid://srjvslg1qora" path="res://data/items/shish_kebab.tres" id="5_0s57v"]
+[ext_resource type="Script" uid="uid://cpokqdqjw7tbr" path="res://model/recipe.gd" id="6_e85c4"]
+
+[sub_resource type="Resource" id="Resource_nj18n"]
+script = ExtResource("1_ogbww")
+mantissa = 50.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n85hb"]
+atlas = ExtResource("2_a8nh0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_hdps4"]
+script = ExtResource("1_ogbww")
+mantissa = 5.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="Resource" id="Resource_0x7lc"]
+script = ExtResource("1_ogbww")
+mantissa = 1.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("6_e85c4")
+recipe_inputs = Dictionary[ExtResource("3_t135c"), ExtResource("1_ogbww")]({
+ExtResource("4_y6ip3"): SubResource("Resource_hdps4")
+})
+recipe_outputs = Dictionary[ExtResource("3_t135c"), ExtResource("1_ogbww")]({
+ExtResource("5_0s57v"): SubResource("Resource_0x7lc")
+})
+icon = SubResource("AtlasTexture_n85hb")
+name = "shish kebab"
+crafting_time_units = SubResource("Resource_nj18n")
+metadata/_custom_type_script = "uid://cpokqdqjw7tbr"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CrafterID" format=3 uid="uid://biq2hgp1nqy8q"]
+
+[ext_resource type="Script" uid="uid://bwqgxqivakel0" path="res://model/ID's/crafter/crafter_ID.gd" id="1_evg6g"]
+
+[resource]
+script = ExtResource("1_evg6g")
+id_name = "crafter_ID9"

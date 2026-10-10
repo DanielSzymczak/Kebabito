@@ -1,25 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://fh5a2i478v34"]
+[gd_scene format=3 uid="uid://fh5a2i478v34"]
 
 [ext_resource type="Script" uid="uid://bpm7vheiae86v" path="res://Scripts/item.gd" id="1_scmcr"]
 [ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="2_my5ke"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="2_wps36"]
+
+[sub_resource type="Resource" id="Resource_ifq0x"]
+script = ExtResource("2_wps36")
+mantissa = 1.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76mu4"]
-size = Vector2(6, 5.25)
+size = Vector2(3.25, 3.203125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scmcr"]
 
-[node name="Item" type="RigidBody2D"]
+[node name="Item" type="RigidBody2D" unique_id=96125911]
 collision_mask = 2
+mass = 0.001
+gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_scmcr")
+amount = SubResource("Resource_ifq0x")
 
-[node name="BoxSprite" type="Sprite2D" parent="."]
+[node name="BoxSprite" type="Sprite2D" parent="." unique_id=1872853051]
 texture_filter = 1
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_my5ke")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=1209345028]
 physics_interpolation_mode = 2
 texture_filter = 1
 scale = Vector2(0.8, 0.8)
@@ -27,10 +37,25 @@ texture = ExtResource("2_my5ke")
 region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=669901845]
+input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2099267119]
 shape = SubResource("RectangleShape2D_76mu4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1010413263]
 shape = SubResource("RectangleShape2D_scmcr")
+
+[node name="Label" type="Label" parent="." unique_id=1248125098]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -13.0
+offset_top = 11.0
+offset_right = 13.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1

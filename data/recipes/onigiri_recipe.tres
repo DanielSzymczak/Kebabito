@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://b8uma1ke5akw3"]
+
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="1_ccnvy"]
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_xl1ao"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="2_mmrou"]
+[ext_resource type="Script" uid="uid://cpokqdqjw7tbr" path="res://model/recipe.gd" id="3_ccnvy"]
+[ext_resource type="Resource" uid="uid://bslquj605euah" path="res://data/items/packed_kebab.tres" id="4_6hevw"]
+[ext_resource type="Resource" uid="uid://xtocij03i8xl" path="res://data/items/onigiri.tres" id="4_bpd25"]
+[ext_resource type="Resource" uid="uid://c3a30x2kg4ggp" path="res://data/items/baklava.tres" id="5_2bvwr"]
+
+[sub_resource type="Resource" id="Resource_6hevw"]
+script = ExtResource("2_mmrou")
+mantissa = 200.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hevw"]
+atlas = ExtResource("1_ccnvy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_sp4jk"]
+script = ExtResource("2_mmrou")
+mantissa = 5.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="Resource" id="Resource_k8q0i"]
+script = ExtResource("2_mmrou")
+mantissa = 100.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="Resource" id="Resource_2bvwr"]
+script = ExtResource("2_mmrou")
+mantissa = 1.0
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("3_ccnvy")
+recipe_inputs = Dictionary[ExtResource("1_xl1ao"), ExtResource("2_mmrou")]({
+ExtResource("4_6hevw"): SubResource("Resource_sp4jk"),
+ExtResource("5_2bvwr"): SubResource("Resource_k8q0i")
+})
+recipe_outputs = Dictionary[ExtResource("1_xl1ao"), ExtResource("2_mmrou")]({
+ExtResource("4_bpd25"): SubResource("Resource_2bvwr")
+})
+icon = SubResource("AtlasTexture_6hevw")
+name = "onigiri"
+crafting_time_units = SubResource("Resource_6hevw")
+metadata/_custom_type_script = "uid://cpokqdqjw7tbr"

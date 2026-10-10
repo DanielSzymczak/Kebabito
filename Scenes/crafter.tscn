@@ -1,42 +1,90 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbubyoeka4pse"]
+[gd_scene format=3 uid="uid://dbubyoeka4pse"]
 
-[ext_resource type="Texture2D" uid="uid://f8m66vssje0a" path="res://icon.svg" id="1_0rc8x"]
 [ext_resource type="Script" uid="uid://cs1vldh8t456c" path="res://Scripts/crafter.gd" id="1_37sf6"]
-[ext_resource type="Resource" uid="uid://b26kvmux1n556" path="res://data/recipies/kebab_plate_recipe.tres" id="2_scdxf"]
+[ext_resource type="Resource" uid="uid://sm5u3cwmuea2" path="res://model/ID's/upgrades/crafting_speed_ID.tres" id="2_scdxf"]
+[ext_resource type="Theme" uid="uid://f8s1orxie4rl" path="res://themes/UI.tres" id="4_6qp44"]
+[ext_resource type="PackedScene" uid="uid://dqmimyhydj4tx" path="res://Scenes/Crafter_navigation_node.tscn" id="4_gp2dr"]
+[ext_resource type="Texture2D" uid="uid://8c3mnd3oa70" path="res://Sprites/Object_spriteheet.png" id="4_o8r4s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_37sf6"]
-radius = 5.0990195
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scdxf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp2dr"]
+bg_color = Color(0.45685214, 0.45685226, 0.45685208, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdxf"]
 size = Vector2(38, 38)
 
-[node name="Crafter" type="Node2D" node_paths=PackedStringArray("crafter_navigation_nodes")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_37sf6"]
+radius = 5.0990195
+
+[node name="Crafter" type="Node2D" unique_id=1732701593 node_paths=PackedStringArray("crafter_navigation_nodes")]
 texture_filter = 1
 script = ExtResource("1_37sf6")
-selected_recipe = ExtResource("2_scdxf")
-crafter_navigation_nodes = [null, null]
-inventory = Dictionary[String, float]({
-"small_rollo": 0.0
-})
+crafter_navigation_nodes = [NodePath("BiginingNode"), NodePath("EndingNode")]
+crafting_speed_upgrade_id = ExtResource("2_scdxf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
+[node name="SpawningBar" type="ProgressBar" parent="." unique_id=2047979228]
+offset_left = 16.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+mouse_filter = 2
+theme = ExtResource("4_6qp44")
+fill_mode = 3
+show_percentage = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1317233065]
+texture = ExtResource("4_o8r4s")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1147472276]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+mouse_filter = 2
+theme = ExtResource("4_6qp44")
+theme_override_styles/background = SubResource("StyleBoxFlat_scdxf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gp2dr")
+fill_mode = 3
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=543618855]
 texture_filter = 1
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_0rc8x")
+texture = ExtResource("4_o8r4s")
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 64)
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_37sf6")
-
-[node name="ClickableArea" type="Area2D" parent="."]
+[node name="ClickableArea" type="Area2D" parent="." unique_id=1604782900]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=747614193]
 shape = SubResource("RectangleShape2D_scdxf")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Area2D" type="Area2D" parent="." unique_id=1035380100]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1942690174]
+shape = SubResource("CircleShape2D_37sf6")
+
+[node name="CraftingDirectionSprite" type="Sprite2D" parent="." unique_id=999648752]
+position = Vector2(0, -29)
+texture = ExtResource("4_o8r4s")
+region_enabled = true
+region_rect = Rect2(128, 128, 64, 64)
+
+[node name="Output_Spawning_Timer" type="Timer" parent="." unique_id=785335658]
+wait_time = 2.0
+
+[node name="BiginingNode" parent="." unique_id=1359298445 node_paths=PackedStringArray("navigation_node_crafter") instance=ExtResource("4_gp2dr")]
+position = Vector2(-64, 0)
+navigation_node_crafter = NodePath("../EndingNode")
+
+[node name="EndingNode" parent="." unique_id=934509938 node_paths=PackedStringArray("navigation_node_crafter") instance=ExtResource("4_gp2dr")]
+position = Vector2(64, 0)
+navigation_node_crafter = NodePath("../BiginingNode")
+
 [connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Output_Spawning_Timer" to="." method="_on_output_spawning_timer_timeout"]

@@ -1,16 +1,115 @@
-[gd_scene load_steps=6 format=3 uid="uid://csns7a61m5ydb"]
+[gd_scene format=3 uid="uid://csns7a61m5ydb"]
 
 [ext_resource type="Script" uid="uid://c6jopywyppfga" path="res://Scripts/spawner.gd" id="1_2bop2"]
-[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="3_2ydn3"]
-[ext_resource type="Resource" uid="uid://cy0duexhd2ddx" path="res://data/small_rollo.tres" id="4_f333s"]
-[ext_resource type="Resource" uid="uid://c0oaj85wm4eve" path="res://data/kebab_plate.tres" id="5_t512v"]
-[ext_resource type="Resource" uid="uid://c3a30x2kg4ggp" path="res://data/baklava.tres" id="6_gjq3i"]
+[ext_resource type="Resource" uid="uid://bt364jkhy403g" path="res://model/ID's/upgrades/item_speed_ID.tres" id="2_t512v"]
+[ext_resource type="Resource" uid="uid://bpjvst2d3y5ft" path="res://model/ID's/upgrades/tap_effectiveness_ID.tres" id="3_gjq3i"]
+[ext_resource type="Resource" uid="uid://bvbrjgvp77f4f" path="res://model/ID's/upgrades/spawning_speed_ID.tres" id="4_yocef"]
+[ext_resource type="Texture2D" uid="uid://8c3mnd3oa70" path="res://Sprites/Object_spriteheet.png" id="5_kh5ph"]
+[ext_resource type="Texture2D" uid="uid://bctujhabgnhv1" path="res://Sprites/kebab_spawner_animation_spritesheet.png" id="6_kh5ph"]
+[ext_resource type="Texture2D" uid="uid://cpucnd6soqmo2" path="res://Sprites/UI/spawner_bar_over.png" id="7_gjq3i"]
+[ext_resource type="Texture2D" uid="uid://cg65bhabnjy6v" path="res://Sprites/UI/spawner_bar_under.png" id="7_kh5ph"]
+[ext_resource type="Texture2D" uid="uid://dsbn4jkcemy31" path="res://Sprites/UI/spawner_bar_progress.png" id="9_xbrvg"]
 
-[node name="Spawner" type="Marker2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjq3i"]
+atlas = ExtResource("5_kh5ph")
+region = Rect2(64, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbrvg"]
+atlas = ExtResource("6_kh5ph")
+region = Rect2(0, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6o4h"]
+atlas = ExtResource("6_kh5ph")
+region = Rect2(6, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_istys"]
+atlas = ExtResource("6_kh5ph")
+region = Rect2(12, 0, 6, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbrvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbrvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6o4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_istys")
+}],
+"loop": true,
+"name": &"rollo_turning",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t512v"]
+size = Vector2(90, 63)
+
+[node name="Spawner" type="Marker2D" unique_id=1859333470]
+texture_filter = 1
+position = Vector2(0, -30)
 script = ExtResource("1_2bop2")
-items = Array[ExtResource("3_2ydn3")]([ExtResource("4_f333s"), ExtResource("5_t512v"), ExtResource("6_gjq3i"), null])
+item_speed_id = ExtResource("2_t512v")
+tap_effectivenes_id = ExtResource("3_gjq3i")
+spawning_speed_upgrade_id = ExtResource("4_yocef")
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.1
-autostart = true
+[node name="Visuals" type="Node2D" parent="." unique_id=2072214999]
+position = Vector2(0, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=773005023]
+z_index = 1
+z_as_relative = false
+position = Vector2(0, -32)
+texture = SubResource("AtlasTexture_gjq3i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=2122368860]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-33, -5)
+sprite_frames = SubResource("SpriteFrames_xbrvg")
+animation = &"rollo_turning"
+autoplay = "rollo_turning"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals" unique_id=1823291146]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(33, -5)
+sprite_frames = SubResource("SpriteFrames_xbrvg")
+animation = &"rollo_turning"
+autoplay = "rollo_turning"
+frame_progress = 0.10037568
+
+[node name="Area2D" type="Area2D" parent="Visuals" unique_id=567440459]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Area2D" unique_id=1587870025]
+z_index = 1
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t512v")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Visuals" unique_id=2126463833]
+z_index = 1
+offset_left = -45.0
+offset_top = -63.0
+offset_right = 45.0
+offset_bottom = -43.0
+texture = ExtResource("7_gjq3i")
+patch_margin_left = 7
+patch_margin_top = 3
+patch_margin_right = 7
+patch_margin_bottom = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Visuals" unique_id=814736139]
+z_index = 1
+offset_left = -38.0
+offset_top = -60.0
+offset_right = 38.0
+offset_bottom = -46.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_kh5ph")
+texture_progress = ExtResource("9_xbrvg")
+
+[connection signal="input_event" from="Visuals/Area2D" to="." method="_on_area_2d_input_event"]

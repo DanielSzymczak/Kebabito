@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnricherID" format=3 uid="uid://b8c5sqbxacwa"]
+
+[ext_resource type="Script" uid="uid://d0yiunubdhjvk" path="res://model/ID's/enricher/enricher_ID.gd" id="1_qafbx"]
+
+[resource]
+script = ExtResource("1_qafbx")
+id_name = "enricher1"
+metadata/_custom_type_script = "uid://d0yiunubdhjvk"

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cjskdi366q5wg"]
+
+[ext_resource type="Theme" uid="uid://f8s1orxie4rl" path="res://themes/UI.tres" id="1_avir6"]
+[ext_resource type="Script" uid="uid://b2vddj8rmxtl" path="res://Scripts/UI/prestige_ui.gd" id="2_ef147"]
+[ext_resource type="Texture2D" uid="uid://dguylrombu6rl" path="res://Sprites/UI/frame.png" id="3_6iy0q"]
+
+[node name="PrestigeUI" type="PanelContainer" unique_id=1976334683]
+custom_minimum_size = Vector2(300, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_avir6")
+script = ExtResource("2_ef147")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=880040886]
+layout_mode = 2
+texture = ExtResource("3_6iy0q")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=58231066]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=650755760]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1833228797]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Prestige"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1445009277]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1201884743]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1921674157]
+layout_mode = 2
+text = "Reset"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

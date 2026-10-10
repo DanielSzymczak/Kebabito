@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://srjvslg1qora"]
+
+[ext_resource type="Script" uid="uid://dotaimm138xfo" path="res://model/item.gd" id="1_4js1g"]
+[ext_resource type="Texture2D" uid="uid://dujqdj8pjp758" path="res://Sprites/item_spritesheet.png" id="1_ornjr"]
+[ext_resource type="Resource" uid="uid://diley4frlb2d" path="res://model/ID's/item/shish_kebab_ID.tres" id="2_aylx6"]
+[ext_resource type="Script" uid="uid://c0s4jxu62mjfg" path="res://model/BigNumber.gd" id="4_gm86b"]
+
+[sub_resource type="Resource" id="Resource_ornjr"]
+script = ExtResource("4_gm86b")
+mantissa = 5.0
+exponent = 3
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r21sk"]
+atlas = ExtResource("1_ornjr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_nol3l"]
+script = ExtResource("4_gm86b")
+mantissa = 0.15
+exponent = 6
+metadata/_custom_type_script = "uid://c0s4jxu62mjfg"
+
+[resource]
+script = ExtResource("1_4js1g")
+id = ExtResource("2_aylx6")
+icon = SubResource("AtlasTexture_r21sk")
+value = SubResource("Resource_nol3l")
+enriching_time_units = SubResource("Resource_ornjr")
+metadata/_custom_type_script = "uid://dotaimm138xfo"
